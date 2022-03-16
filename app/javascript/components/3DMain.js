@@ -45,7 +45,7 @@ const createScene = () => {
       
         renderer.setSize(window.innerWidth, window.innerHeight  );
         /* renderer.outputEncoding = THREE.sRGBEncoding; */
-        renderer.outputEncoding = THREE.setRenderTarget;
+        
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type=THREE.PCFSoftShadowMap;
         renderer.toneMapping = THREE.ReinhardToneMapping;
