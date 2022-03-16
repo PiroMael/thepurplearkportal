@@ -26,7 +26,7 @@ import "three";
 
 // Internal imports, e.g:
 
-import { initBackgroundHomePage } from '../components/3Dmain';
+import { initBackgroundHomePage } from './components/3Dmain';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
