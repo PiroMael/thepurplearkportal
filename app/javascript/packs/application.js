@@ -7,7 +7,19 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
+import "three";
+import { initBackgroundHomePage } from '../components/3DMain';
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// const images = require.context('../images', true)
+// const imagePath = (name) => images(name, true)
+
+
+document.addEventListener('turbolinks:load', () => {
+    // Call your functions here, e.g:
+   
+    initBackgroundHomePage();
+   
+  });
