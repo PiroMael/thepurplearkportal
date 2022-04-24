@@ -9,8 +9,9 @@ import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import Stats from 'three/examples/jsm/libs/stats.module';
 let controls;
-let InPortal = false;
-let moveForward = false;
+let portal;
+let divGif2 = document.getElementsByClassName('gif-distortion');
+let moveForwoard = false;
 			let moveBackward = false;
 			let moveLeft = false;
 			let moveRight = false;
@@ -69,14 +70,36 @@ const createScene = () => {
           
           composer.addPass( bloomPass );
 
+          function delay(time) {
+            return new Promise(resolve => setTimeout(resolve, time));
+          }
+          
+          
       
         function teleport(){
           if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
-            window.location.href = "https://thepurpulearkportal.herokuapp.com/wall";
+            divGif2[0].classList.add("startDistortion");
+            divGif2[0].style.display = "block";
+            delay(3000).then(() => window.location.href = "http://localhost:3000/wall");
+            controls.enabled = false;
           }
         }
       
+        const listener = new THREE.AudioListener();
+        listener.setMasterVolume(0.1);
+        camera.add( listener );
 
+          // create the PositionalAudio object (passing in the listener)
+          const sound = new THREE.PositionalAudio( listener );
+
+          // load a sound and set it as the PositionalAudio object's buffer
+          const audioLoader = new THREE.AudioLoader();
+        audioLoader.load( 'sounds/fairy-sound.ogg', function( buffer ) {
+          sound.setBuffer( buffer );
+          sound.setRefDistance( 15 );
+          sound.play();
+          sound.setLoop(true);
+        });
 
        
 
@@ -92,6 +115,8 @@ const createScene = () => {
             gltf.scene.scale.set(5,5,5)
             
             object.push(gltf.scene) ;
+            portal = object[0].children[17];
+            portal.add(sound);
             let modell =  gltf.scene;
             modell.traverse(n => { if ( n.isMesh ) {
               n.castShadow = true; 
@@ -117,17 +142,7 @@ const createScene = () => {
                         movingAction11 = mixer.clipAction( animations[ 10 ] );
                         movingAction12 = mixer.clipAction( animations[ 11 ] );
                         movingAction13 = mixer.clipAction( animations[ 12 ] );
-                        /* movingAction14 = mixer.clipAction( animations[ 13 ] ); */
-                        /* movingAction15 = mixer.clipAction( animations[ 14 ] ); */
-                        /* movingAction16 = mixer.clipAction( animations[ 15 ] );
-                        movingAction17 = mixer.clipAction( animations[ 16 ] );
-                        movingAction18 = mixer.clipAction( animations[ 17 ] );
-                        movingAction19 = mixer.clipAction( animations[ 18 ] );
-                        movingAction20 = mixer.clipAction( animations[ 19 ] );
-                        movingAction21 = mixer.clipAction( animations[ 20 ] );
-                        movingAction22 = mixer.clipAction( animations[ 21 ] );
-                        movingAction23 = mixer.clipAction( animations[ 22 ] );
-                        movingAction24 = mixer.clipAction( animations[ 23 ] ); */
+                        
                         
                         actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7, movingAction8,movingAction9,movingAction10,movingAction11,movingAction12,movingAction13];
               
@@ -150,44 +165,11 @@ const createScene = () => {
            
         });
         
-        //controls.update() must be called after any manual changes to the camera's transform
+    
         camera.position.set( 0, 16, 150 );
         
-
-             
-
-              
-            /*   const onKeyDown = document.addEventListener('keydown', (event) => {
-                
-               
-                switch (event.code) {
-                    case 'KeyW':
-                      moveForward = true;
-                        
-                        break
-                    case 'KeyA':
-                      moveLeft = true;
-                        break
-                    case 'KeyS':
-                        
-                      moveBackward = true;
-                       
-                        break
-                    case 'KeyD':
-                      moveRight = true;
-                        break
-                    case 'KeyR': 
-                    
-                        break;
-                    case 'KeyF':
-                      event.stop(); 
-                       break;
-                }
-            },false);
-            document.addEventListener('keydown', onKeyDown, false); */
-
-        
-           
+       
+        console.log(portal);  
         const size = 80;
         const divisions = 10;
             
