@@ -28,6 +28,7 @@ import "three";
 import { initLoading } from '../components/loading';
 import { initBackgroundHomePage } from '../components/3DMain';
 import { initWallPage } from '../components/pointercontrols';
+import { initPosts } from '../components/postcontrols';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   initLoading();
   initBackgroundHomePage();
   initWallPage();
+  initPosts();
 });
