@@ -25,14 +25,15 @@ import "three";
 
 
 // Internal imports, e.g:
-
+import { initLoading } from '../components/loading';
 import { initBackgroundHomePage } from '../components/3DMain';
+import { initWallPage } from '../components/pointercontrols';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-
+  initLoading();
   initBackgroundHomePage();
-
+  initWallPage();
 });
