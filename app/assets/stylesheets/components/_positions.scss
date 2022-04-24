@@ -2,10 +2,13 @@
     position: absolute;
 }
 html,body{
+   
     position: relative;
     margin: 0;
     font-family: Helvetica, sans-serif;
     height:100%;
+    scrollbar-color: #fff6ed #fff6ed;
+
 }
 .lefted{
     margin-left: 25px;
