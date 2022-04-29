@@ -1,9 +1,12 @@
 <div class="wall-container" id="wallContainer">
+<div class="containerposts">
 
 <button type="button" class="btn btn-success" id="create-Post" data-target="#exampleModal">
   <h3>Post</h3>
 </button>
+<div id="cross" class="DivCross"></div>
 
+ <%= render "posts/new", locales: [ @post, Post.new ] %>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -21,8 +24,21 @@
     </div>
   </div>
 </div>
-<div id="cross"></div>
-<br><br><br><br><br><br><br><br>
 
-<h1>text</h1>
+ <% i = 0%>
+<% Post.all.each do |post| %>
+ 
+  <% i +=1 %>
+   
+    <div id="post<%= i %>" class="post-container" style= "position:absolute; top:<%= post.Xpos %>px; left:<%= post.Ypos %>px;">
+
+      <div class="post-content">
+        <%= post.content %>
+      </div>
+    </div>
+  
+
+          
+<%end %>
+</div>
 </div>

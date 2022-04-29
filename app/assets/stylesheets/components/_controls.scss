@@ -1,3 +1,14 @@
+#cross{
+    position:fixed;
+    width: 10%;
+    height: 10%;
+    background:center / contain no-repeat url("cross.png");
+    left:45%;
+    top:48%;
+    cursor:none;
+    color:red;
+    font-size:20px;
+}
 .gif{
 
     position: absolute;
@@ -156,12 +167,3 @@
 
 
 
-#cross{
-    position:fixed;
-    width: 10%;
-    height: 10%;
-    background:center / contain no-repeat url("cross.png");
-    left:45%;
-    top:48%;
-    cursor:none;
-}
