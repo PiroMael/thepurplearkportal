@@ -1,0 +1,7 @@
+<%= simple_form_for locales do |f| %>
+  <%= f.input :content,as: :text, id:"PostForm",label: false %>
+  <%= f.input :Xpos,as: :numeric, class:"FormPost-Xpos",label: false %>
+  <%= f.input :Ypos,as: :numeric, class:"PostForm-Ypos",label: false %>
+
+  <%= f.submit "Create Post", id:"submitPostBTn"%>
+<% end %>

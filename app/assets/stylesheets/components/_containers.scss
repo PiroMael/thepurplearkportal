@@ -3,5 +3,19 @@
     width: 200%;
     height: 200%;
     color: black;
-   
+    
+}
+.post-container{
+    max-width: 13%;    
+    background-color: white;
+    
+    
+    font-size: 12px;
+}
+.poshelperOne{
+    position: absolute;
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 25px;
 }
