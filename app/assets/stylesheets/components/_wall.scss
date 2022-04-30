@@ -8,11 +8,12 @@
 
 }
 #new_post{
-    position:absolute;
+    position:fixed;
     width: 20%;
     display: none;
 
- 
+    left:40%;
+    top:23%;
 }
 .containerposts{
     width: 100%;
@@ -27,4 +28,10 @@
 .post-content{
     margin:  6px 6px;
     padding: 0;
+}
+#post_Xpos{
+    display: none;
+}
+#post_Ypos{
+    display: none;
 }
