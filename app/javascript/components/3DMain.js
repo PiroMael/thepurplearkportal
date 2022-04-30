@@ -86,7 +86,7 @@ const createScene = () => {
         }
       
         const listener = new THREE.AudioListener();
-        listener.setMasterVolume(0.1);
+        listener.setMasterVolume(0.2);
         camera.add( listener );
 
           // create the PositionalAudio object (passing in the listener)
