@@ -4,11 +4,16 @@
 html,body{
    
     position: relative;
-    margin: 0;
+    margin:0 0;
+    padding: 0;
     font-family: Helvetica, sans-serif;
     height:100%;
     scrollbar-color: #fff6ed #fff6ed;
 
+}
+html{
+    max-height: 1400px;
+    background-color: #fff6ed;
 }
 .lefted{
     margin-left: 25px;

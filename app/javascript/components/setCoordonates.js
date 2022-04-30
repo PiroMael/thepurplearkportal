@@ -6,7 +6,7 @@ const setposition= () => {
 }
 const initsetposition = () => {
 
-    if (document.querySelector('#cross')) {
+    if (document.querySelector('#wallContainer')) {
         setposition();
        
     }
