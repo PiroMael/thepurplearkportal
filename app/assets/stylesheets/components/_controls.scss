@@ -1,14 +1,4 @@
-#cross{
-    position:fixed;
-    width: 10%;
-    height: 10%;
-    background:center / contain no-repeat url("cross.png");
-    left:45%;
-    top:48%;
-    cursor:none;
-    color:red;
-    font-size:20px;
-}
+
 .gif{
 
     position: absolute;
@@ -47,13 +37,135 @@
 }
 
 
+@media screen and (max-width: 1980px) {
+    .gif-arrowright{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top:50vh;
+        left: 115VH;
+        background: center / cover no-repeat url("Arrow.gif");
+        opacity: 0;
+        animation: fadeArrowRight 4s ease-in forwards;
+        animation-delay: 3s;
+    }
+    @keyframes  fadeArrowRight {
+     0% {
+         opacity: 0;
+        }
+        30% {
+            opacity: 0.8;
+        }
+        60%{
+            opacity: 1;
+            left: 115VH;
+        }
+     100% {
+        left: 195vh;
+        opacity: 0.8;
+        }
+    }
 
+    .gif-arrowleft{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top:50vh;
+        left: 90vh;
+        rotate: 180deg;
+        background: center / cover no-repeat url("Arrow.gif");
+        opacity: 0;
+        animation: fadeArrowLeft 4s ease-in forwards;
+        animation-delay: 3s;
+    }
+    @keyframes  fadeArrowLeft {
+     0% {
+         opacity: 0;
+        }
+        30% {
+            opacity: 0.8;
+        }
+        60%{
+            opacity: 0.8;
+            left: 90vh;
+        }
+     100% {
+        left: 7vh;
+        opacity: 0.8;
+        }
+    }
+    
+    .gif-arrowtop{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top:40vh;
+        left: 103vh;
+        rotate: -90deg;
+        background: center / cover no-repeat url("Arrow.gif");
+        opacity: 0;
+        animation: fadeArrowTop 4s ease-in forwards;
+        animation-delay: 3s;
+    }
+    @keyframes  fadeArrowTop {
+     0% {
+         opacity: 0;
+        }
+        30% {
+            opacity: 0.8;
+    
+        }
+        60%{
+            opacity: 0.8;
+            top:40vh;
+        }
+     100% {
+        top: 5vh;
+        opacity: 0.8;
+        }
+    }
+    
+    
+    .gif-arrowbot{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top:60vh;
+        left: 103vh;
+        rotate: 90deg;
+        background: center / cover no-repeat url("Arrow.gif");
+        opacity: 0;
+        animation: fadeArrowBot 4s ease-in forwards;
+        animation-delay: 3s;
+    }
+    @keyframes  fadeArrowBot {
+     0% {
+         opacity: 0;
+        }
+        30% {
+            opacity: 0.8;
+    
+        }
+        60%{
+            opacity: 0.8;
+            top:60vh;
+        }
+     100% {
+        top: 85vh;
+        opacity: 0.8;
+        }
+    }
+}
+  
+
+
+@media screen and (max-width: 1380px) {
 .gif-arrowright{
     width: 70px;
     height: 70px;
     position: absolute;
     top:50vh;
-    left: 117vh;
+    left: 105VH;
     background: center / cover no-repeat url("Arrow.gif");
     opacity: 0;
     animation: fadeArrowRight 4s ease-in forwards;
@@ -68,10 +180,10 @@
     }
     60%{
         opacity: 1;
-        left: 117vh;
+        left: 105VH;
     }
  100% {
-    left: 200vh;
+    left: 170vh;
     opacity: 0.8;
     }
 }
@@ -80,7 +192,7 @@
     height: 70px;
     position: absolute;
     top:50vh;
-    left: 90vh;
+    left: 75vh;
     rotate: 180deg;
     background: center / cover no-repeat url("Arrow.gif");
     opacity: 0;
@@ -96,7 +208,7 @@
     }
     60%{
         opacity: 0.8;
-        left: 90vh;
+        left: 75vh;
     }
  100% {
     left: 7vh;
@@ -109,7 +221,7 @@
     height: 70px;
     position: absolute;
     top:40vh;
-    left: 103vh;
+    left: 89vh;
     rotate: -90deg;
     background: center / cover no-repeat url("Arrow.gif");
     opacity: 0;
@@ -140,7 +252,7 @@
     height: 70px;
     position: absolute;
     top:60vh;
-    left: 103vh;
+    left: 89vh;
     rotate: 90deg;
     background: center / cover no-repeat url("Arrow.gif");
     opacity: 0;
@@ -163,6 +275,7 @@
     top: 85vh;
     opacity: 0.8;
     }
+}
 }
 
 
