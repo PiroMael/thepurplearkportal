@@ -9,7 +9,7 @@ const createCrossmouse = () => {
   
   let clicked = false;
   let posthover = false;
-
+  let Writing = false;
 
   
 
@@ -20,20 +20,22 @@ const createCrossmouse = () => {
   setTimeout(function() {
     wall.onclick = function(){ 
       clicked=true;
-      console.log('wall container clicked');
+      /* console.log('wall container clicked'); */
    }
    postform.onclick = function(){
     clicked=true;
-    console.log('postForm clicked');
+    /* console.log('postForm clicked'); */
+    Writing = true;
   }
   posts.onclick = function(){
-    clicked=true;
-    console.log('post container clicked');
+    
+    
+    /* console.log('post container clicked'); */
   }
 }, 2000);
 postform.onclick = function(){
   clicked=true;
-  console.log('postForm clicked');
+  /* console.log('postForm clicked'); */
 }
 
 
@@ -43,33 +45,39 @@ submitPost.onclick = function(){
 }    
 }  
   $('#myModal').modal('show');
-   
-        var x, y;
+   var x, y,Px,Py;
+
+const onMouseMove = (e) =>{
+  if (Writing == false){
+  postform.style.left = e.clientX-20  + 'px';
+  postform.style.top = e.clientY-20 + 'px';
+  }
+}
+document.addEventListener('mousemove', onMouseMove);
+
+
 
         function handleMouse(e) {
           // Verify that x and y already have some value
-          if (x && y && clicked == false) {
-    
+          if (x && y && clicked == false && Px && Py) {
+           /*  console.log(e.pageX, e.pageY);
+            console.log("posform:" + postform.style.top + " " + postform.style.left); */
             // Scroll window by difference between current and previous positions
            
             window.scrollBy((e.clientX - x)*3, (e.clientY - y)*3);
             
-            if (e.pageY <1740) {
-            postform.style.top = (e.pageY*0.9 )+ 'px';
-            }
-            if (e.pageX < 2800) {
-            postform.style.left = (e.pageX *0.9 )+ 'px';
-            }
+          
             if (e.pageY <1740 && e.pageX < 2800) {
             postformXpos.value =e.pageY;
-            postformYpos.value = e.pageX;
+            postformYpos.value =e.pageX ;
             }
           }
         
           // Store current position
           x = e.clientX;
           y = e.clientY;
-          
+          Py = e.pageY;
+          Px = e.pageX;
         }
         
         // Assign handleMouse to mouse movement events
