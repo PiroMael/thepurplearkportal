@@ -1,6 +1,6 @@
 const  createload = () => {
 let divGif = document.getElementsByClassName('gif');
-console.log(divGif);
+
 divGif[0].style.width = window.innerWidth + 'px';
 divGif[0].style.height = window.innerHeight + 'px';
 

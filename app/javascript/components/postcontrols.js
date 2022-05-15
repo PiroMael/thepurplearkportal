@@ -3,14 +3,19 @@ const createPost= () => {
     let createPostBtn = document.getElementById('create-Post');
 
     let postform = document.getElementById('new_post');
-
+    let postClicked = false;
     let submitPost = document.getElementById('submitPostBTn');
     let t =100;
     let postcontainer = document.getElementsByClassName('containerposts');
     let postscollection = document.getElementsByClassName('post-container');
     let posthover = false;
+   
 
-
+    const audio = new Audio('stamp-sound-effect.ogg');
+    submitPost.addEventListener('click', (e) => {
+        audio.play()
+        setTimeout(function() {location.reload();}, 1000);
+      })
     const postArray = [];
   
   for (let i = 0; i < postscollection.length; i++) {
@@ -23,7 +28,7 @@ const createPost= () => {
 
         post.onclick = function(){
             t+=1;
-            
+            postClicked = true;
             post.style.zIndex = `${t}`;
         }
     });
@@ -34,8 +39,10 @@ const createPost= () => {
     setTimeout(function() {
      
     wall.onclick = function(){ 
+        if(postClicked === false){
         postform.style.display = 'block';  
-        
+        }
+        postClicked = false;
     }}, 3000);
 
     submitPost.onclick = function(){

@@ -24,6 +24,14 @@
     position: absolute;
     left: 35%;
     top:89%;
+    border-radius: 0px;
+    border: 1px solid #d2baa3;
+    background-color: #fffdfb;
+    color: #0a1237;
+}
+#submitPostBTn:hover{
+    background-color: #0a1237;
+    color: #fffdfb;
 }
 .post-content{
     margin:  6px 6px;
