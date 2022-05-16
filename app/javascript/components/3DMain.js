@@ -80,7 +80,7 @@ const createScene = () => {
           if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
             divGif2[0].classList.add("startDistortion");
             divGif2[0].style.display = "block";
-            delay(3000).then(() => window.location.href = "http://localhost:3000/wall");
+            delay(3000).then(() => window.location.href = "https://thepurpulearkportal.herokuapp.com/wall");
             controls.enabled = false;
           }
         }
