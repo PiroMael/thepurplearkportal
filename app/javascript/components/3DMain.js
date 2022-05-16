@@ -80,13 +80,13 @@ const createScene = () => {
           if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
             divGif2[0].classList.add("startDistortion");
             divGif2[0].style.display = "block";
-            delay(3000).then(() => window.location.href = "https://thepurpulearkportal.herokuapp.com/wall");
+            delay(3000).then(() => window.location.href = "http://localhost:3000/wall");
             controls.enabled = false;
           }
         }
       
         const listener = new THREE.AudioListener();
-        listener.setMasterVolume(0.2);
+        listener.setMasterVolume(0.19);
         camera.add( listener );
 
           // create the PositionalAudio object (passing in the listener)
@@ -96,7 +96,7 @@ const createScene = () => {
           const audioLoader = new THREE.AudioLoader();
         audioLoader.load( 'sounds/fairy-sound.ogg', function( buffer ) {
           sound.setBuffer( buffer );
-          sound.setRefDistance( 15 );
+          sound.setRefDistance( 7 );
           sound.play();
           sound.setLoop(true);
         });

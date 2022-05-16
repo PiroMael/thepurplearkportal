@@ -11,7 +11,7 @@ const createPost= () => {
     let posthover = false;
    
 
-    const audio = new Audio('stamp-sound-effect.ogg');
+    const audio = new Audio('harp001.ogg');
     submitPost.addEventListener('click', (e) => {
         audio.play()
         setTimeout(function() {location.reload();}, 1000);
