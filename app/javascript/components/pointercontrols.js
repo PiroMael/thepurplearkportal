@@ -6,45 +6,81 @@ const createCrossmouse = () => {
   let postform = document.getElementById('new_post');
   let submitPost = document.getElementById('submitPostBTn');
   let postscollection = document.getElementsByClassName('post-container');
-  
+  let firstvisit; 
   let clicked = false;
   let posthover = false;
   let Writing = false;
-
   
+  $(document).ready(function() {
+    var isshow = localStorage.getItem('isshow');
+    if (isshow== null) {
+        localStorage.setItem('isshow', 1);
+      firstvisit = true;
+        // Show popup here
+        $('#myModal').modal('show');
+        console.log('hello newbie');
+        if (posthover ===false && firstvisit == true) {
+          setTimeout(function() {
+            wall.onclick = function(){ 
+              clicked=true;
+              /* console.log('wall container clicked'); */
+           }
+           postform.onclick = function(){
+            clicked=true;
+            /* console.log('postForm clicked'); */
+            Writing = true;
+          }
+          posts.onclick = function(){
+            
+            
+            /* console.log('post container clicked'); */
+          }
+        }, 2000);
+        postform.onclick = function(){
+          clicked=true;
+          /* console.log('postForm clicked'); */
+        }
+        
+        
+        
+        submitPost.onclick = function(){
+                
+          clicked=false;
+        }    
+        }  
+        
+    }
+    else{
+        firstvisit = false;
+        $('#myModal').modal('hide');
+        console.log('hello');
+    }
+});
 
 
 
 
-  if (posthover ===false){
-  setTimeout(function() {
-    wall.onclick = function(){ 
-      clicked=true;
-      /* console.log('wall container clicked'); */
-   }
-   postform.onclick = function(){
+ 
+if(firstvisit == false) {
+  console.log("un habitué tien tien")
+  wall.onclick = function(){ 
+    clicked=true;
+    /* console.log('wall container clicked'); */
+  }
+  postform.onclick = function(){
     clicked=true;
     /* console.log('postForm clicked'); */
     Writing = true;
   }
   posts.onclick = function(){
-    
+    clicked=true;
     
     /* console.log('post container clicked'); */
   }
-}, 2000);
-postform.onclick = function(){
-  clicked=true;
-  /* console.log('postForm clicked'); */
 }
-
-
-submitPost.onclick = function(){
-        
-  clicked=false;
-}    
-}  
-  $('#myModal').modal('show');
+if(firstvisit === true){
+  
+}
    var x, y,Px,Py;
 
 const onMouseMove = (e) =>{

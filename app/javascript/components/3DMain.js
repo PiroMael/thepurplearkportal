@@ -10,6 +10,8 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import Stats from 'three/examples/jsm/libs/stats.module';
 let controls;
 let portal;
+let teleporting = false;
+
 let divGif2 = document.getElementsByClassName('gif-distortion');
 let moveForwoard = false;
 			let moveBackward = false;
@@ -73,17 +75,23 @@ const createScene = () => {
           function delay(time) {
             return new Promise(resolve => setTimeout(resolve, time));
           }
-          
-          
+          function changeUrl(){
+            window.location.href = "http://localhost:3000/wall";
+            
+          }
+       
       
         function teleport(){
           if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
             divGif2[0].classList.add("startDistortion");
             divGif2[0].style.display = "block";
-            delay(1000).then(() => window.location.href = "https://thepurpulearkportal.herokuapp.com/wall");
             controls.enabled = false;
+            setTimeout(changeUrl, 2000);
+          
+        
           }
         }
+
       
         const listener = new THREE.AudioListener();
         listener.setMasterVolume(0.19);
@@ -182,13 +190,15 @@ const createScene = () => {
         }
         
         function animate() {
-          
+          if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
+          teleport();
+          }
           requestAnimationFrame( animate );
           upfate();
           
           render();
           stats.update();
-          teleport(); 
+          
         }
         
         function render() {
