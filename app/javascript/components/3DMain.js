@@ -95,7 +95,7 @@ const createScene = () => {
          console.log('teleport');
          if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
           controls.enabled = false;
-          window.location.href = "http://localhost:3000/wall";
+          window.location.href = "https://thepurpulearkportal.herokuapp.com/wall";
          }
          interval =  10000;
          }
