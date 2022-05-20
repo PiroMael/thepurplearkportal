@@ -11,7 +11,7 @@ import Stats from 'three/examples/jsm/libs/stats.module';
 let controls;
 let portal;
 let teleporting = false;
-
+let interval = 100;
 let divGif2 = document.getElementsByClassName('gif-distortion');
 let moveForwoard = false;
 			let moveBackward = false;
@@ -76,8 +76,7 @@ const createScene = () => {
             return new Promise(resolve => setTimeout(resolve, time));
           }
           function changeUrl(){
-            window.location.href = "http://localhost:3000/wall";
-            
+          
           }
        
       
@@ -86,11 +85,21 @@ const createScene = () => {
             divGif2[0].classList.add("startDistortion");
             divGif2[0].style.display = "block";
             controls.enabled = false;
-            setTimeout(changeUrl, 2000);
           
+            
         
           }
         }
+        setInterval(() => {
+       if(teleporting == true){
+         console.log('teleport');
+         if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
+          controls.enabled = false;
+          window.location.href = "http://localhost:3000/wall";
+         }
+         interval =  10000;
+         }
+        },3000);
 
       
         const listener = new THREE.AudioListener();
@@ -175,7 +184,7 @@ const createScene = () => {
         
     
         camera.position.set( 0, 16, 150 );
-        
+         
        
     
         const size = 80;
@@ -191,8 +200,12 @@ const createScene = () => {
         
         function animate() {
           if (camera.position.x>=-5.7 && camera.position.x<=3.85 && camera.position.z>=-2.6 && camera.position.z<=1.83){
-          teleport();
-          }
+            teleporting = true;
+            controls.enabled = false;
+            setInterval(() => {
+            teleport();
+            }, interval);
+            }
           requestAnimationFrame( animate );
           upfate();
           
@@ -204,7 +217,7 @@ const createScene = () => {
         function render() {
           controls.update(clock2.getDelta() );
           composer.render();
-            
+         
         }
         
 

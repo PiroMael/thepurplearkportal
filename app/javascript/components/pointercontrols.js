@@ -10,7 +10,7 @@ const createCrossmouse = () => {
   let clicked = false;
   let posthover = false;
   let Writing = false;
-  
+
   $(document).ready(function() {
     var isshow = localStorage.getItem('isshow');
     if (isshow== null) {
@@ -27,7 +27,7 @@ const createCrossmouse = () => {
            }
            postform.onclick = function(){
             clicked=true;
-            /* console.log('postForm clicked'); */
+            console.log('postForm clicked'); 
             Writing = true;
           }
           posts.onclick = function(){
@@ -53,7 +53,16 @@ const createCrossmouse = () => {
     else{
         firstvisit = false;
         $('#myModal').modal('hide');
-        console.log('hello');
+        wall.onclick = function(){ 
+          clicked=true;
+          /* console.log('wall container clicked'); */
+       }
+       postform.onclick = function(){
+        clicked=true;
+        console.log('postForm clicked'); 
+        Writing = true;
+      }
+      
     }
 });
 
@@ -77,14 +86,17 @@ if(firstvisit == false) {
     
     /* console.log('post container clicked'); */
   }
+  postform.onclick = function(){
+    clicked=true;
+    /* console.log('postForm clicked'); */
+    Writing = true;
+  }
 }
-if(firstvisit === true){
-  
-}
+
    var x, y,Px,Py;
 
 const onMouseMove = (e) =>{
-  if (Writing == false){
+  if (Writing == false && clicked == false) {
   postform.style.left = e.clientX-20  + 'px';
   postform.style.top = e.clientY-20 + 'px';
   }
