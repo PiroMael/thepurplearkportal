@@ -29,6 +29,7 @@ const createCrossmouse = () => {
             clicked=true;
             console.log('postForm clicked'); 
             Writing = true;
+            document.getElementsByTagName('body')[0].style.overflow = 'hidden';
           }
           posts.onclick = function(){
             
@@ -61,6 +62,7 @@ const createCrossmouse = () => {
         clicked=true;
         console.log('postForm clicked'); 
         Writing = true;
+        document.getElementsByTagName('body')[0].style.overflow = 'hidden';
       }
       
     }
@@ -90,6 +92,7 @@ if(firstvisit == false) {
     clicked=true;
     /* console.log('postForm clicked'); */
     Writing = true;
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
   }
 }
 
